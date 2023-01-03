@@ -14,6 +14,8 @@ class CostsController < ApplicationController
     @cost = Cost.new
   end
 
+  def edit; end
+
   def create
     if Cost.create!(cost_params)
       redirect_to costs_path
@@ -21,8 +23,6 @@ class CostsController < ApplicationController
       redirect_to new_cost_path
     end
   end
-
-  def edit; end
 
   def update
     if @cost.update!(cost_params)
