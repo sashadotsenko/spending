@@ -1,8 +1,13 @@
 <%= form_with model: @cost do |f| %>
   <div class="field">
+    <%= f.label :category_id, 'Category' %>
+    <%= f.select :category_id, @categories %>
+  </div><br>
+
+  <div class="field">
     <%= f.label :amount, 'Amount($)' %>
     <%= f.number_field :amount, step: :any %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :description %>
