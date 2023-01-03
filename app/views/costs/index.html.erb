@@ -1,0 +1,21 @@
+<div>
+  <%= link_to 'Create Cost', new_cost_path %>
+</div>
+<% @costs.each do |cost| %>
+  <table>
+    <tr>
+      <th>Amount</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+    <tr>
+      <td><%= cost.amount.to_f %></td>
+      <td><%= cost.description %></td>
+      <td>
+        <%= link_to 'Edit', edit_cost_path(cost) %>
+        <%= link_to 'Show', cost_path(cost) %>
+        <%= link_to 'Destroy', cost_path(cost), 'data-turbo-method': :delete %>
+      </td>
+    </tr>
+  </table>
+<% end %>

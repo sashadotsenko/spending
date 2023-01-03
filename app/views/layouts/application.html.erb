@@ -11,6 +11,18 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= link_to 'Home', root_path %>
+      <%= link_to 'Costs', costs_path %>
+      <% if user_signed_in? %>
+        <%= link_to "Logout", destroy_user_session_path, 'data-turbo-method': :delete %>
+      <% else %>
+        <%= link_to "User Sign up", new_user_registration_path %>
+        <%= link_to "User Sign in", new_user_session_path %>
+      <% end %>
+      <br><br>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
