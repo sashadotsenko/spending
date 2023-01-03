@@ -1,0 +1,8 @@
+<h3>Amount: <%= @cost.amount.to_f %></h3>
+<p>
+  Description: <%= @cost.description %>
+</p>
+
+<%= link_to 'Back', costs_path %>
+<%= link_to 'Edit', edit_cost_path(@cost) %>
+<%= link_to 'Destroy', cost_path(@cost), 'data-turbo-method': :delete %>

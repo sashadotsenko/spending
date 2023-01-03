@@ -1,0 +1,19 @@
+<%= form_with model: @cost do |f| %>
+  <div class="field">
+    <%= f.label :amount, 'Amount($)' %>
+    <%= f.number_field :amount, step: :any %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, placeholder: 'Description..' %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div><br>
+
+  <div class="actions">
+    <%= f.submit "Add Cost" %>
+  </div>
+<% end %>
