@@ -33,8 +33,11 @@ class CostsController < ApplicationController
   end
 
   def destroy
-    @cost.destroy
-    redirect_to costs_path
+    if @cost.destroy
+      redirect_to costs_path
+    else
+      redirect_to costs_path, status: :bad_request
+    end
   end
 
   private
