@@ -4,11 +4,13 @@
 <% @costs.each do |cost| %>
   <table>
     <tr>
+      <th>Category</th>
       <th>Amount</th>
       <th>Description</th>
       <th>Action</th>
     </tr>
     <tr>
+      <td><%= cost.category.name %></td>
       <td><%= cost.amount.to_f %></td>
       <td><%= cost.description %></td>
       <td>
