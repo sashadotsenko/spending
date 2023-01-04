@@ -1,0 +1,6 @@
+<%= form_with model: @cost, method: :get do |f| %>
+  <%= f.label "Search by category:" %>
+  <%= f.select :category_id, @categories, include_blank: 'Any' %>
+  <%= f.submit 'Search' %>
+<% end %>
+<br>
