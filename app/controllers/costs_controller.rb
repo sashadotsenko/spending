@@ -17,7 +17,7 @@ class CostsController < ApplicationController
   def edit; end
 
   def create
-    if Cost.create!(cost_params)
+    if Cost.create(cost_params).valid?
       redirect_to costs_path
     else
       redirect_to new_cost_path
@@ -25,7 +25,7 @@ class CostsController < ApplicationController
   end
 
   def update
-    if @cost.update!(cost_params)
+    if @cost.update(cost_params)
       redirect_to cost_path(@cost)
     else
       redirect_to edit_cost_path(@cost)
@@ -33,11 +33,8 @@ class CostsController < ApplicationController
   end
 
   def destroy
-    if @cost.destroy
-      redirect_to costs_path
-    else
-      redirect_to edit_cost_path(@cost)
-    end
+    @cost.destroy
+    redirect_to costs_path
   end
 
   private
@@ -51,6 +48,6 @@ class CostsController < ApplicationController
   end
 
   def set_categories
-    @categories = Category.all.map { |category| [category.name, category.id] }
+    @categories = Category.pluck(:name, :id)
   end
 end

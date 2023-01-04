@@ -1,4 +1,5 @@
-<%= form_with model: @cost do |f| %>
+<div class="new_cost">
+  <%= form_with model: @cost do |f| %>
   <div class="field">
     <%= f.label :category_id, 'Category' %>
     <%= f.select :category_id, @categories %>
@@ -21,4 +22,5 @@
   <div class="actions">
     <%= f.submit "Add Cost" %>
   </div>
-<% end %>
+  <% end %>
+</div>
