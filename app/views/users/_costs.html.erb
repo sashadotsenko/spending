@@ -1,0 +1,20 @@
+<table>
+  <% @costs.each do |cost| %>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= link_to "#{cost.user.login}", user_path(cost.user) %></td>
+        <td><%= cost.category.name %></td>
+        <td><%= cost.amount %></td>
+        <td><%= cost.description %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
