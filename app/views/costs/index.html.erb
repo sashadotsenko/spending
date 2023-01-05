@@ -1,23 +1,37 @@
 <div>
+  <%= render 'category_filter' %>
+  <%= render 'amount_filter' %>
+</div>
+<div>
   <%= link_to 'Create Cost', new_cost_path %>
 </div>
-<% @costs.each do |cost| %>
-  <table>
+<table>
+  <% @costs.each do |cost| %>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= cost.category.name %></td>
+        <td><%= cost.amount %></td>
+        <td><%= cost.description %></td>
+        <td>
+          <%= link_to 'Edit', edit_cost_path(cost) %>
+          <%= link_to 'Show', cost_path(cost) %>
+          <%= link_to 'Destroy', cost_path(cost), 'data-turbo-method': :delete %>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+  <tfoot>
     <tr>
-      <th>Category</th>
-      <th>Amount</th>
-      <th>Description</th>
-      <th>Action</th>
+      <th>Total:</th>
+      <th><%= total_amount(@costs) %></th>
     </tr>
-    <tr>
-      <td><%= cost.category.name %></td>
-      <td><%= cost.amount.to_f %></td>
-      <td><%= cost.description %></td>
-      <td>
-        <%= link_to 'Edit', edit_cost_path(cost) %>
-        <%= link_to 'Show', cost_path(cost) %>
-        <%= link_to 'Destroy', cost_path(cost), 'data-turbo-method': :delete %>
-      </td>
-    </tr>
-  </table>
-<% end %>
+  </tfoot>
+</table>

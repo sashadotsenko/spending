@@ -2,10 +2,10 @@
 
 class CostsController < ApplicationController
   before_action :set_cost, only: %i[show edit update destroy]
-  before_action :set_categories, only: %i[new edit]
+  before_action :set_categories, only: %i[index new edit]
 
   def index
-    @costs = Cost.includes(:category).where(user_id: current_user.id)
+    @costs = Costs::FilterQuery.new(params, current_user).call
   end
 
   def show; end

@@ -14,6 +14,6 @@ RSpec.describe 'User sign up' do
 
     click_button 'Sign up'
 
-    expect(page).to have_content('Home page!')
+    expect(page).to have_content('All Costs!')
   end
 end
