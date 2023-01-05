@@ -1,6 +1,6 @@
 <%= form_tag costs_path, method: :get do %>
-  <%= number_field_tag :amount_min, params[:amount_min], step: 0.1 %>
-  <%= number_field_tag :amount_max, params[:amount_max], step: 0.1 %>
+  <%= number_field_tag :amount_min, params[:amount_min], step: 0.1, placeholder: 'min amount' %>
+  <%= number_field_tag :amount_max, params[:amount_max], step: 0.1, placeholder: 'max amount' %>
   <%= submit_tag "Search" %>
 <% end %>
 <br>
