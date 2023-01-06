@@ -78,6 +78,7 @@ group :test do
   gem 'simplecov', require: false
 end
 
+gem 'cancancan'
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'factory_bot_rails'
