@@ -5,7 +5,7 @@
     <p class="card-text">Description: <%= @cost.description %></p>
     <div class="action">
       <%= link_to 'Back', :back, class: "btn btn-light" %>
-      <% if can? :update && :destroy, @cost %>
+      <% if can? :update || :destroy, @cost %>
         <%= link_to 'Edit', edit_cost_path(@cost), class: "btn btn-warning" %>
         <%= link_to 'Destroy', cost_path(@cost), class: "btn btn-danger", 'data-turbo-method': :delete %>
       <% end %>
