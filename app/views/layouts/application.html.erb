@@ -7,20 +7,14 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
+    <%= render 'layouts/navbar' %>
+    <br><br>
+
     <div class="container">
-      <%= link_to 'Home', root_path %>
-      <% if user_signed_in? %>
-        <%= link_to 'Costs', costs_path %>
-        <%= link_to "Logout", destroy_user_session_path, 'data-turbo-method': :delete %>
-      <% else %>
-        <%= link_to "User Sign up", new_user_registration_path %>
-        <%= link_to "User Sign in", new_user_session_path %>
-      <% end %>
-      <br><br>
 
       <%= yield %>
     </div>

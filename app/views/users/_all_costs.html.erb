@@ -1,0 +1,22 @@
+<table class="table">
+  <thead class="thead-dark" scope="col">
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Category</th>
+      <th scope="col">Amount($)</th>
+      <th scope="col">Description</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <% @costs.each do |cost| %>
+    <tbody>
+      <tr>
+        <td><%= link_to "#{cost.user.login}", user_path(cost.user) %></td>
+        <td><%= cost.category.name %></td>
+        <td><%= cost.amount %></td>
+        <td><%= cost.description %></td>
+        <td><%= link_to 'Show', cost_path(cost), class: "btn btn-info" %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>

@@ -1,26 +1,26 @@
 <div class="new_cost">
   <%= form_with model: @cost do |f| %>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :category_id, 'Category' %>
-    <%= f.select :category_id, @categories %>
+    <%= f.select :category_id, @categories, {}, class: "form-control" %>
   </div><br>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :amount, 'Amount($)' %>
-    <%= f.number_field :amount, step: :any %>
+    <%= f.number_field :amount, step: :any, min: 0, class: "form-control" %>
   </div><br>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description, placeholder: 'Description..' %>
+    <%= f.text_area :description, placeholder: 'Description..', class: "form-control" %>
+  </div><br>
+
+  <div class="form-group">
+    <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
 
-  <div class="field">
-    <%= f.hidden_field :user_id, value: current_user.id %>
-  </div><br>
-
   <div class="actions">
-    <%= f.submit "Add Cost" %>
+    <%= f.submit "Add Cost", class: "btn btn-dark" %>
   </div>
   <% end %>
 </div>

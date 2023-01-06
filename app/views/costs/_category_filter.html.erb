@@ -1,6 +1,15 @@
 <%= form_with model: @cost, method: :get do |f| %>
-  <%= f.label "Search by category:" %>
-  <%= f.select :category_id, @categories, include_blank: 'Any' %>
-  <%= f.submit 'Search' %>
-<% end %>
-<br>
+  <div class="row g-3 align-items-center">
+    <div class="col-auto">
+      <%= f.label "Search by category:" %>
+    </div>
+
+    <div class="col-auto">
+      <%= f.select :category_id, @categories, { include_blank: 'Any' }, class: "form-control" %>
+    </div>
+
+    <div class="col-auto">
+      <%= f.submit 'Search', class: "btn btn-outline-success" %>
+    </div>
+  </div>
+<% end %><br>

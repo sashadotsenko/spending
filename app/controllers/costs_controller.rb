@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[show]
+
   before_action :set_cost, only: %i[show edit update destroy]
   before_action :set_categories, only: %i[index new edit]
 
