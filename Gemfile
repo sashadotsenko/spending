@@ -78,9 +78,11 @@ group :test do
   gem 'simplecov', require: false
 end
 
+gem 'cssbundling-rails'
 gem 'devise'
 gem 'factory_bot_rails'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'main'
+gem 'jsbundling-rails'
 gem 'rubocop', require: false
 gem 'rubocop-performance', require: false
 gem 'rubocop-rails', require: false

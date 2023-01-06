@@ -1,29 +1,33 @@
-<div>
-  <%= render 'category_filter' %>
-  <%= render 'amount_filter' %>
+<div class="row">
+  <div class="col-6">
+    <%= render 'category_filter' %>
+  </div>
+  <div class="col-6">
+    <%= render 'amount_filter' %>
+  </div>
 </div>
 <div>
-  <%= link_to 'Create Cost', new_cost_path %>
-</div>
-<table>
+  <%= link_to 'Create Cost', new_cost_path, class: "btn btn-dark" %>
+</div><br>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Category</th>
+      <th scope="col">Amount($)</th>
+      <th scope="col">Description</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
   <% @costs.each do |cost| %>
-    <thead>
-      <tr>
-        <th>Category</th>
-        <th>Amount</th>
-        <th>Description</th>
-        <th>Action</th>
-      </tr>
-    </thead>
     <tbody>
       <tr>
         <td><%= cost.category.name %></td>
         <td><%= cost.amount %></td>
         <td><%= cost.description %></td>
         <td>
-          <%= link_to 'Edit', edit_cost_path(cost) %>
-          <%= link_to 'Show', cost_path(cost) %>
-          <%= link_to 'Destroy', cost_path(cost), 'data-turbo-method': :delete %>
+          <%= link_to 'Show', cost_path(cost), class: "btn btn-info" %>
+          <%= link_to 'Edit', edit_cost_path(cost), class: "btn btn-warning" %>
+          <%= link_to 'Destroy', cost_path(cost), class: "btn btn-danger", 'data-turbo-method': :delete %>
         </td>
       </tr>
     </tbody>
@@ -31,7 +35,7 @@
   <tfoot>
     <tr>
       <th>Total:</th>
-      <th><%= total_amount(@costs) %></th>
+      <th colspan="3"><%= total_amount(@costs) %></th>
     </tr>
   </tfoot>
 </table>
