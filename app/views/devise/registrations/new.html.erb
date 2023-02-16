@@ -34,9 +34,15 @@
                 <%= f.submit "Sign up", data: {turbo: false}, class: "btn btn-success btn-block btn-lg gradient-custom-4 text-body" %>
               </div>
 
+
               <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
                 class="fw-bold text-body"><u><%= render "devise/shared/links" %></u></a></p>
                 <% end %>
+              </div>
+
+              <p class="text-center text-muted mb-0">Sign up with:</p>
+              <div class="d-flex justify-content-center mb-3">
+                <%= button_to 'Google', '/auth/google_oauth2', method: :post, data: { turbo: false }, remote: true, class: 'btn btn-outline-success' %>
               </div>
             </div>
           </div>
