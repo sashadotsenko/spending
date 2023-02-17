@@ -43,6 +43,7 @@
               <p class="text-center text-muted mb-0">Sign up with:</p>
               <div class="d-flex justify-content-center mb-3">
                 <%= button_to 'Google', '/auth/google_oauth2', method: :post, data: { turbo: false }, remote: true, class: 'btn btn-outline-success' %>
+                <%= button_to 'GitHub', '/auth/github', method: :post, data: { turbo: false }, remote: true, class: 'btn btn-outline-dark' %>
               </div>
             </div>
           </div>

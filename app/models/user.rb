@@ -12,7 +12,10 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }
 
   def from_omniauth(auth)
-    self.login = auth[:info][:email]
+    case auth[:provider]
+    when 'google_oauth2' then self.login = auth[:info][:email]
+    when 'github' then self.login = auth[:info][:nickname]
+    end
     self.password = SecureRandom.hex(15)
     authentications.build(provider: auth[:provider], uid: auth[:uid])
   end
