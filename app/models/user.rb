@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   def from_omniauth(auth)
     case auth[:provider]
-    when 'google_oauth2' then self.login = auth[:info][:email]
+    when 'google_oauth2', 'facebook' then self.login = auth[:info][:email]
     when 'github' then self.login = auth[:info][:nickname]
     end
     self.password = SecureRandom.hex(15)

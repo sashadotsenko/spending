@@ -13,7 +13,11 @@ class AuthenticationsController < ApplicationController
     else
       user = User.new
       user.from_omniauth(auth)
-      sign_in_and_redirect(:user, user) if user.save
+      if user.save
+        sign_in_and_redirect(:user, user)
+      else
+        redirect_to root_path, alert: user.errors.full_messages.join("\n")
+      end
     end
   end
 
